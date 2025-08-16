@@ -14,13 +14,7 @@ public class Image implements Displayable {
     public Image(int width, int height) {
         this.width = width;
         this.height = height;
-        this.image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                display(x, y, Color.BLACK);
-            }
-        }
-
+        this.image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
     }
 
     @Override

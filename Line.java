@@ -23,23 +23,15 @@ public class Line implements Drawable {
         }
 
         for (int i = 0; i <= steps; i++) {
-            int ix = (int) x, iy = (int) y;
-            int dist = inc_x == 1 ? (int) ((y - iy) * 255) : (int) ((x - ix) * 255);
-
-            image.display(ix, iy, new Color(color.getRed(), color.getGreen(), color.getBlue(), 255 - dist));
-            image.display(ix + 1, iy + 1, new Color(color.getRed(), color.getGreen(), color.getBlue(), dist));
+            image.display((int) Math.round(x), (int) Math.round(y), color);
             x += inc_x;
             y += inc_y;
-
-            // if (x == 0) {
-            //     break;
-            // }
         }
     }
 
     @Override
     public Color getColor() {
-        return new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255), 255);
+        return new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
     }
 
     public static Line random(int width, int height) {
