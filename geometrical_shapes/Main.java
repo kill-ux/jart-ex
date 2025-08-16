@@ -1,5 +1,3 @@
-// package jart;
-
 import java.awt.Color;
 
 interface Displayable {

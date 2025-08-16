@@ -1,0 +1,1 @@
+javac -d build geometrical_shapes/*.java && java -cp build Main

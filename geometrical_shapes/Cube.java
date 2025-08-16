@@ -30,11 +30,6 @@ public class Cube implements Drawable {
 
         Color color = getColor();
 
-        System.out.println(p1.x);
-        System.out.println(p1.y);
-        System.out.println(p3.x);
-        System.out.println(p3.y);
-
         Rectangle rec1 = new Rectangle(p1, p3);
         rec1.color = color;
         rec1.draw(image);
