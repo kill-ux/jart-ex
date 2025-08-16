@@ -22,7 +22,7 @@ public class Pentagon implements Drawable {
 
         for (int i = 0; i <= 5; i++) {
             Point last_point = new Point(last_x,last_y);
-            double angle =  ((double) i * (360. / 5.) * Math.PI ) / 180. ;
+            double angle =  ((double) i * (360.0 / 5.) * Math.PI ) / 180. ;
             int x = (int) Math.floor(radius * Math.cos(angle) + (double) center.x) ;
             int y = (int) Math.floor(radius * Math.sin(angle) + (double) center.y) ;
             last_x = x;

@@ -32,6 +32,11 @@ public class Main {
             Circle circle = Circle.random(image.getWidth(), image.getHeight());
             circle.draw(image);
         }
+        Pentagon pen1 = new Pentagon(new Point(500, 500), 30);
+        pen1.draw(image);
+
+        Cube cube = new Cube(new Point(400, 300), 80);
+        cube.draw(image);
 
         for (int i = 0; i < 5; i++) {
             Pentagon pen = Pentagon.random(image.getWidth(), image.getHeight());

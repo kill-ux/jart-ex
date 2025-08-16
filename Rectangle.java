@@ -4,6 +4,7 @@ import java.awt.Color;
 public class Rectangle implements Drawable {
     Point p1;
     Point p3;
+    Color color;
 
     public Rectangle(Point p1, Point p3) {
         this.p1 = p1;
@@ -13,9 +14,10 @@ public class Rectangle implements Drawable {
     @Override
     public void draw(Displayable image) {
         Point p2 = new Point(p1.x, p3.y);
-        Point p4 = new Point(p3.x, p1.x);
-
-        Color color = getColor();
+        Point p4 = new Point(p3.x, p1.y);
+        if (color == null) {
+            color = getColor();
+        }
         Line line1 = new Line(p1, p2);
         line1.color = color;
         Line line2 = new Line(p2, p3);
