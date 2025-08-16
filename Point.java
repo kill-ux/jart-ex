@@ -18,4 +18,8 @@ public class Point implements Drawable {
     public Color getColor() {
         return new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
     }
+
+    public static Point random(int width, int height) {
+        return new Point((int) (Math.random() * width), (int) (Math.random() * height));
+    }
 }

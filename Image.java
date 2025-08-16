@@ -8,10 +8,19 @@ import javax.imageio.ImageIO;
 // Image 
 public class Image implements Displayable {
     BufferedImage image;
+    int width;
+    int height;
 
-    public Image(int width, int higth) {
+    public Image(int width, int height) {
         try {
-            this.image = new BufferedImage(width, higth, BufferedImage.TYPE_INT_RGB);
+            this.width = width;
+            this.height = height;
+            this.image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    display(x, y, Color.BLACK);
+                }
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -28,8 +37,16 @@ public class Image implements Displayable {
 
     @Override
     public void display(int x, int y, Color color) {
-        if (x >= 0 && x <= image.getWidth() && y >= 0 && y <= image.getHeight()) {
+        if (x >= 0 && x < image.getWidth() && y >= 0 && y < image.getHeight()) {
             image.setRGB(x, y, color.getRGB());
         }
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
     }
 }
