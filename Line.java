@@ -15,6 +15,7 @@ public class Line implements Drawable {
         int x1 = p1.x, y1 = p1.y, x2 = p2.x, y2 = p2.y;
         int dx = x2 - x1, dy = y2 - y1;
         double steps = Math.max(Math.abs(dx), Math.abs(dy));
+
         double inc_x = dx / steps, inc_y = dy / steps;
         double x = x1, y = y1;
         if (color == null) {
@@ -22,41 +23,11 @@ public class Line implements Drawable {
         }
 
         for (int i = 0; i <= steps; i++) {
-            double fx = x - Math.floor(x);
-            double fy = y - Math.floor(y);
+            int ix = (int) x, iy = (int) y;
+            int dist = inc_x == 1 ? (int) ((y - iy) * 255) : (int) ((x - ix) * 255);
 
-            // Determine which pixel gets more weight
-            if (fx <= 0.5 && fy <= 0.5) {
-                // Primary pixel is floor(x), floor(y)
-                image.display((int) Math.floor(x), (int) Math.floor(y), color);
-                // Secondary pixel gets partial alpha
-                if (fx > fy) {
-                    int alpha = (int) (255 * (0.5 - fx) / 0.5);
-                    image.display((int) Math.ceil(x), (int) Math.floor(y),
-                            new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha));
-                } else {
-                    int alpha = (int) (255 * (0.5 - fy) / 0.5);
-                    image.display((int) Math.floor(x), (int) Math.ceil(y),
-                            new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha));
-                }
-            } else if (fx > 0.5 && fy > 0.5) {
-                // Primary pixel is ceil(x), ceil(y)
-                image.display((int) Math.ceil(x), (int) Math.ceil(y), color);
-                // Secondary pixel gets partial alpha
-                if (fx < fy) {
-                    int alpha = (int) (255 * (fx - 0.5) / 0.5);
-                    image.display((int) Math.floor(x), (int) Math.ceil(y),
-                            new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha));
-                } else {
-                    int alpha = (int) (255 * (fy - 0.5) / 0.5);
-                    image.display((int) Math.ceil(x), (int) Math.floor(y),
-                            new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha));
-                }
-            } else {
-                // Default case - just draw the rounded pixel
-                image.display((int) Math.round(x), (int) Math.round(y), color);
-            }
-
+            image.display(ix, iy, new Color(color.getRed(), color.getGreen(), color.getBlue(), 255 - dist));
+            image.display(ix + 1, iy + 1, new Color(color.getRed(), color.getGreen(), color.getBlue(), dist));
             x += inc_x;
             y += inc_y;
         }

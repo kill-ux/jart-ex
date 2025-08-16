@@ -12,18 +12,15 @@ public class Image implements Displayable {
     int height;
 
     public Image(int width, int height) {
-        try {
-            this.width = width;
-            this.height = height;
-            this.image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    display(x, y, Color.BLACK);
-                }
+        this.width = width;
+        this.height = height;
+        this.image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                display(x, y, Color.BLACK);
             }
-        } catch (Exception e) {
-            System.out.println(e);
         }
+
     }
 
     @Override
@@ -37,7 +34,7 @@ public class Image implements Displayable {
 
     @Override
     public void display(int x, int y, Color color) {
-        if (x >= 0 && x < image.getWidth() && y >= 0 && y < image.getHeight()) {
+        if (x >= 0 && x < width && y >= 0 && y < height) {
             image.setRGB(x, y, color.getRGB());
         }
     }
