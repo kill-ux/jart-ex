@@ -30,6 +30,10 @@ public class Line implements Drawable {
             image.display(ix + 1, iy + 1, new Color(color.getRed(), color.getGreen(), color.getBlue(), dist));
             x += inc_x;
             y += inc_y;
+
+            // if (x == 0) {
+            //     break;
+            // }
         }
     }
 

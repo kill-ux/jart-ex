@@ -17,8 +17,8 @@ interface Drawable {
 public class Main {
     public static void main(String[] args) {
         Image image = new Image(1000, 1000);
-        Point point1 = new Point(0, 45);
-        Point point2 = new Point(500, 2);
+        Point point1 = new Point(0, 0);
+        Point point2 = new Point(500, 10);
         // point1.draw(image);
         Line line = new Line(point1, point2);
         line.draw(image);
