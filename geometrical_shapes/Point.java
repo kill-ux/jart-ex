@@ -1,4 +1,3 @@
-import java.awt.Color;
 
 public class Point implements Drawable {
     int x;
@@ -12,11 +11,6 @@ public class Point implements Drawable {
     @Override
     public void draw(Displayable image) {
         image.display(x, y, getColor());
-    }
-
-    @Override
-    public Color getColor() {
-        return new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
     }
 
     public static Point random(int width, int height) {

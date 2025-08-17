@@ -37,6 +37,21 @@ public class Main {
             Pentagon pen = Pentagon.random(image.getWidth(), image.getHeight());
             pen.draw(image);
         }
+
+        Drawable[] arr = new Drawable[] {
+                Point.random(image.getWidth(), image.getHeight()),
+                Line.random(image.getWidth(), image.getHeight()),
+                Triangle.random(image.getWidth(), image.getHeight()),
+                Circle.random(image.getWidth(), image.getHeight()),
+                Rectangle.random(image.getWidth(), image.getHeight()),
+                Pentagon.random(image.getWidth(), image.getHeight()),
+                Cube.random(image.getWidth(), image.getHeight()),
+        };
+
+        for (Drawable shape : arr) {
+            shape.draw(image);
+        }
+
         image.save("image.png");
     }
 }

@@ -54,8 +54,4 @@ public class Circle implements Drawable {
         }
     }
 
-    @Override
-    public Color getColor() {
-        return new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
-    }
 }

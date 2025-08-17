@@ -33,8 +33,7 @@ public class Rectangle implements Drawable {
         line4.draw(image);
     }
 
-    @Override
-    public Color getColor() {
-        return new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+    public static Rectangle random(int width, int height) {
+        return new Rectangle(Point.random(width, height), Point.random(width, height));
     }
 }
