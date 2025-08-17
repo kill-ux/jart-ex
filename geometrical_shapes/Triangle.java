@@ -27,8 +27,7 @@ public class Triangle implements Drawable {
         line3.draw(image);
     }
 
-    @Override
-    public Color getColor() {
-        return new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+    public static Triangle random(int width, int height) {
+        return new Triangle(Point.random(width, height), Point.random(width, height), Point.random(width, height));
     }
 }

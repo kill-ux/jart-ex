@@ -30,11 +30,6 @@ public class Line implements Drawable {
         }
     }
 
-    @Override
-    public Color getColor() {
-        return new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
-    }
-
     public static Line random(int width, int height) {
         return new Line(Point.random(width, height), Point.random(width, height));
     }
