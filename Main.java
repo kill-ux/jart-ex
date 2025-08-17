@@ -1,16 +1,13 @@
-import java.awt.Color;
 
-interface Displayable {
-    void display(int x, int y, Color color);
+// interface Displayable {
+//     void display(int x, int y, Color color);
+//     void save(String string);
+// }
 
-    void save(String string);
-}
-
-interface Drawable {
-    void draw(Displayable displayable);
-
-    Color getColor();
-}
+// interface Drawable {
+//     void draw(Displayable displayable);
+//     Color getColor();
+// }
 
 public class Main {
     public static void main(String[] args) {

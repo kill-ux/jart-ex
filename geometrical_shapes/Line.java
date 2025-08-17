@@ -18,6 +18,7 @@ public class Line implements Drawable {
 
         double inc_x = dx / steps, inc_y = dy / steps;
         double x = x1, y = y1;
+        
         if (color == null) {
             color = getColor();
         }
